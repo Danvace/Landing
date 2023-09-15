@@ -1,0 +1,38 @@
+.main-part {
+    display: flex;
+}
+
+.main-part__left-block {
+    color: #091133;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 48px; /* 133.333% */
+}
+
+
+.main-part__left-block p {
+    width: 540px;
+    color: #6F7CB2;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px; /* 162.5% */
+}
+
+.main-part__info-cards {
+    padding-top: 26px;
+    display: flex;
+}
+
+.main-part__info-card h2 {
+    color: #091133;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px; /* 162.5% */
+}
+
+
+.undraw-mobile-login {
+    width: 540px;
+    height: 524.313px;
+    flex-shrink: 0;
+}

@@ -1,0 +1,90 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 1440px;
+    height: 282px;
+    flex-shrink: 0;
+    background: #E7ECFF;
+}
+
+.year-logo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.year-logo span {
+    color: #939EA4;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+    margin-left: 165px;
+    margin-top: 30px;
+}
+
+.year-logo h1 {
+    width: 79px;
+    height: 38px;
+    flex-shrink: 0;
+    color: #37447E;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 38px; /* 146.154% */
+    margin-right: 165px;
+    margin-top: 42px;
+}
+
+.line__div {
+    display: flex;
+    justify-content: center;
+}
+
+.line {
+    width: 1110px;
+    height: 1px;
+    flex-shrink: 0;
+    background: #CDD1D4;
+}
+
+footer .button {
+    display: flex;
+    justify-content: center;
+    padding-top: 21px;
+}
+
+footer button {
+    width: 109px;
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px; /* 150% */
+    height: 26px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    background: #111B47;
+}
+
+.about__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about__section .about {
+    margin-top: 25px;
+    display: flex;
+    width: 256px;
+    justify-content: space-between;
+}
+
+.contacts {
+    width: 230px;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.about__section .about {
+    padding-left: 12px;
+}
+

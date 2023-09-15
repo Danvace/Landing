@@ -1,0 +1,22 @@
+body {
+    font-family: "Roboto", "Arial", sans-serif;
+    color: #505f98;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+a {
+    text-decoration: none;
+    color: #505f98;
+}
+
+li {
+    display: block;
+}
+
+button {
+    border: none;
+}
