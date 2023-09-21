@@ -1,5 +1,5 @@
 .bg {
-    width: 1440px;
+    width: 1100px;
     height: 738px;
     flex-shrink: 0;
     display: flex;
@@ -7,7 +7,7 @@
 }
 
 .bg__tittle {
-    padding-left: 167px;
+    /*padding-left: 167px;*/
 }
 
 .bg__tittle h1 {
@@ -27,7 +27,7 @@
 
 .bg__block-elements {
     padding-top: 88px;
-    padding-left: 165px;
+    /*padding-left: 165px;*/
     display: flex;
     justify-content: flex-start;
 

@@ -1,7 +1,8 @@
 footer {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    width: 1440px;
+    width: 100%;
     height: 282px;
     flex-shrink: 0;
     background: #E7ECFF;
