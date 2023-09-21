@@ -85,12 +85,25 @@ footer button {
     justify-content: space-evenly;
 }
 
+.contacts li a img:hover{
+    animation: scaleAnimation 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.5); /* Increase the size by 10% */
+    }
+}
+
 .about__section .about {
     padding-left: 12px;
 }
 
 @media screen and (max-width: 768px) {
-    footer .container{
+    footer .container {
         flex-shrink: 1;
         width: 100%;
         display: flex;
@@ -101,10 +114,12 @@ footer button {
     footer .year-logo {
         width: 100%;
     }
+
     .year-logo span {
         padding-left: 3%;
         margin: 0;
     }
+
     .year-logo h1 {
         padding-right: 3%;
         margin: 0;

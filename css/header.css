@@ -47,6 +47,13 @@ header {
     line-height: 25px; /* 150% */
     border-radius: 2px;
     background: #111B47;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.header__nav__Learn-more:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
 }
 
 header .header__title {
@@ -55,6 +62,9 @@ header .header__title {
     font-weight: 900;
     line-height: 3px; /* 146.154% */
 }
+
+
+
 
 .header__nav__Buy-now {
     color: #111B47;
@@ -67,6 +77,14 @@ header .header__title {
     flex-shrink: 0;
     border-radius: 2px;
     background: #FFD166;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.header__nav__Buy-now:hover {
+    color: #FFFFFF;
+    background-color: #FF2A00;
+    transform: scale(1.1);
 }
 
 .hero__inner h1 {
