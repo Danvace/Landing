@@ -73,3 +73,51 @@
     margin-top: 30px;
 
 }
+
+@media screen and (max-width: 768px) {
+    .bg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .bg__tittle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bg__tittle h1 {
+        width: 90%;
+        text-align: center;
+    }
+
+    .bg__tittle p {
+        width: 90%;
+        text-align: center;
+    }
+
+    .bg__block-elements {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10%;
+    }
+
+    .bg__block-element {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 85%;
+        margin: 0;
+        padding-bottom: 10%;
+    }
+
+    .bg__block-element span {
+        text-align: center;
+    }
+
+    .bg__block-element p {
+        width: 90%;
+        text-align: center;
+    }
+}
