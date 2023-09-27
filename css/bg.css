@@ -45,7 +45,7 @@
 }
 
 .bg__block-element span {
-    width: 350px;
+    width: 100%;
     color: #091133;
     font-size: 22px;
     font-weight: 500;
@@ -53,7 +53,7 @@
 }
 
 .bg__block-element p {
-    width: 350px;
+    width: 100%;
     color: #5D6970;
     font-size: 14px;
     line-height: 24px; /* 171.429% */
