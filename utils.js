@@ -18,7 +18,7 @@ export const clearInputs = () => {
 }
 
 const itemTemplate = ({name, volume, passengerAmount}) =>
-    `<li>
+    `<li class="plane-card">
                     <h5>plane</h5>
                     <span>${name}</span> <br>
                     <span>${volume}</span> <br>

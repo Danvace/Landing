@@ -8,7 +8,25 @@ const checkbox = document.getElementById("checkbox");
 const output = document.getElementById("count-output");
 const countButton = document.getElementById("count-fuel-button");
 
-let planes = [];
+let planes = [
+    {
+        name: "sadf",
+        volume: 123,
+        passengerAmount: 123
+    },
+    {
+        name: "sadfasdg",
+        volume: 312,
+        passengerAmount: 312
+    },
+    {
+        name: "jjjj",
+        volume: 1000,
+        passengerAmount: 1000
+    }
+];
+let foundPlanes = planes;
+
 
 const addItem = ({name, volume, passengerAmount}) => {
 
@@ -37,23 +55,25 @@ submitButton.addEventListener("click", (event) => {
 })
 
 findButton.addEventListener("click", () => {
-    const foundPlanes = planes.filter(h => h.name.search(findInput.value) !== -1);
+    foundPlanes = planes.filter(h =>
+        h.name.toLowerCase().search(findInput.value.toLowerCase()) !== -1);
 
     renderItems(foundPlanes);
 })
 
 cancelFindButton.addEventListener("click", () => {
+    foundPlanes = planes;
     renderItems(planes);
     findInput.value = "";
 })
 
 checkbox.addEventListener("change",() =>{
-    renderItems(planes);
+    renderItems(foundPlanes);
 })
 
 countButton.addEventListener("click", () => {
     let count = 0;
-    for (let plane of planes){
+    for (let plane of foundPlanes){
         count += parseInt(plane.volume);
     }
     output.textContent = count.toString();

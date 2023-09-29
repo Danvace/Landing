@@ -5,7 +5,7 @@ header {
 }
 main {
     display: flex;
-    width: 100%;
+    justify-content: flex-start;
 }
 .left-side {
     width: 40%;
@@ -27,7 +27,7 @@ main {
 
 .left-side-cards button {
     margin-top: 20px;
-    width: 50%;
+    width: 150px;
 }
 
 .edit {
@@ -42,7 +42,24 @@ main {
 }
 
 .edit button {
-    width: 50%;
+    width: 150px;
 }
+
+.plane-card {
+    /*margin-right: 15px;*/
+    margin-bottom: 10px;
+    border: 2px solid aqua;
+    width: 10rem;
+}
+
+/*.show-list {*/
+/*    list-style: none;*/
+/*}*/
+
+.items-to-list {
+    display: flex;
+    flex-flow: wrap;
+}
+
 
 
