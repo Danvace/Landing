@@ -4,20 +4,18 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="./index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
 </head>
 <body>
 <header>
     <div class="left-side">
         <h1>Plane CRUD</h1>
-        <a href="">Data</a>
-        <a href="">Create</a>
-        <a href="">Edit</a>
     </div>
     <div class="search-block">
-        <label for="searchInput"></label>
-        <input type="text" id="searchInput" placeholder="Search by title...">
-        <button id="searchButton">Search</button>
-        <button id="clearButton">Clear</button>
+        <label for="find-input"></label>
+        <input type="text" id="find-input" placeholder="Search by title...">
+        <button id="find-button">Search</button>
+        <button id="cancel-find-button">Clear</button>
     </div>
 </header>
 <main>
@@ -37,13 +35,13 @@
                 Submit
             </button>
         </form>
-        <div class="edit">
-            <label>Find by name <br>
-                <input type="text" id="find-input">
-            </label>
-            <button id="find-button">Find</button>
-            <button id="cancel-find-button">Cancel</button>
-        </div>
+        <!--        <div class="edit">-->
+        <!--            <label>Find by name <br>-->
+        <!--                <input type="text" id="find-input">-->
+        <!--            </label>-->
+        <!--            <button id="find-button">Find</button>-->
+        <!--            <button id="cancel-find-button">Cancel</button>-->
+        <!--        </div>-->
         <div class="sort-volume">
             <h2> Sort by the most <br>
                 amount of passenger </h2>
@@ -58,13 +56,34 @@
         </div>
     </div>
     <div class="show-list">
-            <ul id="items-to-list" class="items-to-list">
+        <ul id="items-to-list" class="items-to-list">
 
-            </ul>
+        </ul>
     </div>
 </main>
+<div class="container">
+    <div class="edit-container" id="edit-container" style="display: none">
+        <div class="edit_table">
+            <h2 class="edit_title">Edit Plane</h2>
+            <div class="input_content">
+                <div class="inputs">
+                    <label for="edit_input">Name</label>
+                    <input id="edit_input" class="edit_input" type="text" placeholder="Text...">
+                </div>
+                <div class="inputs">
+                    <label for="edit_volume">Volume</label>
+                    <input type="number" id="edit_volume">
+                </div>
+                <div class="inputs">
+                    <label for="edit_passenger">Passenger</label>
+                    <input type="number" id="edit_passenger">
+                </div>
+            </div>
+            <button class="save_button" id="save_button">Save</button>
+        </div>
+    </div>
+</div>
 
-
-<script type="module" src="index.js"></script>
+<script type="module" src="index.mjs"></script>
 </body>
 </html>

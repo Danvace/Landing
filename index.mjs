@@ -8,29 +8,23 @@ const checkbox = document.getElementById("checkbox");
 const output = document.getElementById("count-output");
 const countButton = document.getElementById("count-fuel-button");
 
-let planes = [
-    {
-        name: "sadf",
-        volume: 123,
-        passengerAmount: 123
-    },
-    {
-        name: "sadfasdg",
-        volume: 312,
-        passengerAmount: 312
-    },
-    {
-        name: "jjjj",
-        volume: 1000,
-        passengerAmount: 1000
-    }
-];
+let planes = [];
 let foundPlanes = planes;
 
+export const getPlanes = () => {
+    return planes;
+}
+
+export const getFoundPlanes = () => {
+    return foundPlanes;
+}
 
 const addItem = ({name, volume, passengerAmount}) => {
 
+    const generatedId = uuid.v1();
+
     const newItem = {
+        id: generatedId,
         name,
         volume,
         passengerAmount
@@ -78,6 +72,3 @@ countButton.addEventListener("click", () => {
     }
     output.textContent = count.toString();
 })
-
-
-
