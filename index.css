@@ -58,6 +58,7 @@ main {
 .items-to-list {
     display: flex;
     flex-flow: wrap;
+    list-style: none;
 }
 
 .container {

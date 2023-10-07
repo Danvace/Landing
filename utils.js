@@ -46,9 +46,9 @@ export const clearInputs = () => {
 const itemTemplate = ({id, name, volume, passengerAmount}) =>
     `<li class="plane-card" id="${id}">
                     <h5>plane</h5>
-                    <span>${name}</span> <br>
-                    <span>${volume}</span> <br>
-                    <span>${passengerAmount}</span> <br>
+                    <p>Name____:${name}</p> 
+                    <p>Volume___:${volume}</p> 
+                    <p>Passengers:${passengerAmount}</p>
                     <button class="edit-button" id="edit-button_${id}">Edit</button>
     </li>`;
 
