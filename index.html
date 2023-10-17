@@ -13,7 +13,7 @@
     </div>
     <div class="search-block">
         <label for="find-input"></label>
-        <input type="text" id="find-input" placeholder="Search by title...">
+        <input type="text" id="find-input" placeholder="Search by id">
         <button id="find-button">Search</button>
         <button id="cancel-find-button">Clear</button>
     </div>
@@ -21,15 +21,18 @@
 <main>
     <div class="left-side-cards">
         <form id="add-card" class="add-card">
-            <h3>Add Plane</h3>
-            <label>Name <br>
-                <input type="text" id="name-input">
+            <h3>Add Flood</h3>
+            <label>point of Measurement <br>
+                <input type="text" id="pointOfMeasurement">
             </label>
-            <label>Volume <br>
-                <input type="number" id="volume-input">
+            <label>level of Water<br>
+                <input type="number" id="levelOfWater">
             </label>
-            <label>passenger amount <br>
-                <input type="number" id="passenger-input">
+            <label>gps <br>
+                <input type="text" id="gps">
+            </label>
+            <label>date of Measurement <br>
+                <input type="text" id="dateOfMeasurement">
             </label>
             <button type="submit" id="button-submit">
                 Submit
@@ -43,15 +46,14 @@
         <!--            <button id="cancel-find-button">Cancel</button>-->
         <!--        </div>-->
         <div class="sort-volume">
-            <h2> Sort by the most <br>
-                amount of passenger </h2>
+            <h2> Sort by the water level </h2>
             <label>
                 <input type="checkbox" id="checkbox">
             </label>
         </div>
         <div class="count-amount">
             <h2>Count</h2>
-            <button id="count-fuel-button">Count amount of fuel</button>
+            <button id="count-button">Count amount of fuel</button>
             <p id="count-output"></p>
         </div>
     </div>
@@ -67,16 +69,20 @@
             <h2 class="edit_title">Edit Plane</h2>
             <div class="input_content">
                 <div class="inputs">
-                    <label for="edit_input">Name</label>
-                    <input id="edit_input" class="edit_input" type="text" placeholder="Text...">
+                    <label for="edit_point-of-measurement">Point of Measurement</label>
+                    <input type="text" id="edit_point-of-measurement">
                 </div>
                 <div class="inputs">
-                    <label for="edit_volume">Volume</label>
-                    <input type="number" id="edit_volume">
+                    <label for="edit_level-of-water">Level of Water</label>
+                    <input type="number" id="edit_level-of-water">
                 </div>
                 <div class="inputs">
-                    <label for="edit_passenger">Passenger</label>
-                    <input type="number" id="edit_passenger">
+                    <label for="edit_gps">GPS</label>
+                    <input type="text" id="edit_gps">
+                </div>
+                <div class="inputs">
+                    <label for="edit_date-of-measurement">Date of Measurement</label>
+                    <input type="text" id="edit_date-of-measurement">
                 </div>
             </div>
             <button class="save_button" id="save_button">Save</button>

@@ -1,94 +1,103 @@
-import {addItemToPage, clearInputs, getInputValue, renderItems} from "./utils.js"
+// Purpose: Entry point for the application
+import {getAllFloods, postFlood} from "./js/api.mjs";
+import {addItemToPage, getInputValues, clearInputs, renderItems} from "./utils.mjs";
 
 const submitButton = document.getElementById("button-submit");
 const findButton = document.getElementById("find-button");
-const cancelFindButton = document.getElementById("cancel-find-button");
 const findInput = document.getElementById("find-input");
-const checkbox = document.getElementById("checkbox");
-const output = document.getElementById("count-output");
-const countButton = document.getElementById("count-fuel-button");
+const cancelFindButton = document.getElementById("cancel-find-button");
+const countButton = document.getElementById("count-button");
+const checkButton = document.getElementById("checkbox");
 
-let planes = [
-    {
-        id: 1,
-        name: "lol",
-        volume: 123,
-        passengerAmount: 123
-    },
-    {
-        id: 2,
-        name: "lol1",
-        volume: 111,
-        passengerAmount: 111
-    },
-    {
-        id: 3,
-        name: "lol2",
-        volume: 321,
-        passengerAmount: 321
-    },
+export let floods = [];
+export let foundFloods = [];
 
-];
-let foundPlanes = planes;
-
-export const getPlanes = () => {
-    return planes;
+window.onload = function () {
+    fetchDataAndRender().then(() => console.log("Data fetched and rendered"));
 }
 
-export const getFoundPlanes = () => {
-    return foundPlanes;
+export const getFloods = () => {
+    return floods;
 }
 
-const addItem = ({name, volume, passengerAmount}) => {
+export const getFoundFloods = () => {
+    return foundFloods;
+}
 
-    const generatedId = uuid.v1();
+const addItem = ({
+                     pointOfMeasurement,
+                     levelOfWater,
+                     gps,
+                     dateOfMeasurement
+                 }) => {
 
     const newItem = {
-        id: generatedId,
-        name,
-        volume,
-        passengerAmount
+        pointOfMeasurement,
+        levelOfWater,
+        gps,
+        dateOfMeasurement
     }
+    let itemWithID = postFlood(newItem);
 
-    planes.push(newItem);
-    addItemToPage(newItem)
-
+    itemWithID.then((data) => {
+        floods.push(data);
+        addItemToPage(data)
+    })
 }
+
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
 
-    const {name, volume, passengerAmount} = getInputValue();
+    const {dateOfMeasurement,levelOfWater,gps,pointOfMeasurement} = getInputValues();
 
     clearInputs();
 
     addItem({
-        name,
-        volume,
-        passengerAmount
-    })
+        pointOfMeasurement,
+        levelOfWater,
+        gps,
+        dateOfMeasurement})
+
 })
 
 findButton.addEventListener("click", () => {
-    foundPlanes = planes.filter(h =>
-        h.name.toLowerCase().search(findInput.value.toLowerCase()) !== -1);
+    foundFloods = floods.filter(h =>
+        h.pointOfMeasurement.toLowerCase().search(findInput.value.toLowerCase()) !== -1);
 
-    renderItems(foundPlanes);
+    renderItems(foundFloods);
 })
 
 cancelFindButton.addEventListener("click", () => {
-    foundPlanes = planes;
-    renderItems(planes);
+    foundFloods = floods;
+    renderItems(floods);
     findInput.value = "";
 })
 
-checkbox.addEventListener("change", () => {
-    renderItems(foundPlanes);
-})
 
 countButton.addEventListener("click", () => {
-    let count = 0;
-    for (let plane of foundPlanes) {
-        count += parseInt(plane.volume);
+    //count level of water
+    let sum = 0;
+    for (const flood of foundFloods) {
+        sum += flood.levelOfWater;
     }
-    output.textContent = count.toString();
+    //display level of water on page
+    document.getElementById("count-output").innerHTML = sum;
 })
+
+
+checkButton.addEventListener("change", () => {
+    renderItems(foundFloods)
+})
+
+
+
+async function fetchDataAndRender() {
+    try {
+        const data = await getAllFloods();
+        floods.push(...data);
+        foundFloods.push(...data); // Initialize foundFloods with the fetched data
+        renderItems(floods); // Render all elements on page load
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
