@@ -41,7 +41,8 @@ const addItem = ({
 
     itemWithID.then((data) => {
         floods.push(data);
-        addItemToPage(data)
+        foundFloods.push(data);
+        addItemToPage(data);
     })
 }
 
@@ -78,7 +79,7 @@ countButton.addEventListener("click", () => {
     //count level of water
     let sum = 0;
     for (const flood of foundFloods) {
-        sum += flood.levelOfWater;
+        sum += parseInt(flood.levelOfWater);
     }
     //display level of water on page
     document.getElementById("count-output").innerHTML = sum;

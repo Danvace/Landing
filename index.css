@@ -1,8 +1,61 @@
+body {
+    margin: 0;
+    width: 100%;
+}
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: cadetblue;
 }
+header .left-side {
+    padding-left: 4rem;
+}
+header .left-side h1 {
+    font-size: 1.625rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 2.375rem; /* 146.154% */
+}
+
+header .search-block {
+    padding-right: 2rem;
+}
+
+#find-input {
+    border-radius:6px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+#find-button {
+    border-radius:6px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+    transition: transform 0.3s;
+}
+
+#find-button:active {
+    transform: translateY(5px);
+}
+
+#cancel-find-button {
+    border-radius:6px;
+    border: 1px solid #ccc;
+    transition: transform 0.3s;
+}
+
+#cancel-find-button:active {
+    transform: translateY(5px);
+}
+
+
+
+#find-input[type="search"]:focus {
+    border-color: red; /* Change the border color on focus */
+    box-shadow: 0 0 5px red;
+}
+
 main {
     display: flex;
     justify-content: flex-start;
@@ -14,51 +67,176 @@ main {
     justify-content: space-between;
 }
 
+/*.left-side-cards {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    width: 30%;*/
+/*    background-color: #cccccc;*/
+/*    height: 100vh;*/
+/*}*/
+
+/*.add-card {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+
+/*}*/
+
+/*.left-side-cards button {*/
+/*    margin-top: 20px;*/
+/*    width: 150px;*/
+/*}*/
+
+/*.edit {*/
+/*    padding-top: 20px;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.edit > label {*/
+/*    padding-bottom: 20px;*/
+/*}*/
+
+/*.edit button {*/
+/*    width: 150px;*/
+/*}*/
+
+/*.plane-card {*/
+/*    padding-left: 10px;*/
+/*    padding-bottom: 5px;*/
+/*    margin-right: 15px;*/
+/*    margin-bottom: 10px;*/
+/*    border: 2px solid aqua;*/
+/*    border-radius: 20px;*/
+/*    width: 10rem;*/
+/*}*/
+
+/*.items-to-list {*/
+/*    display: flex;*/
+/*    flex-flow: wrap;*/
+/*    list-style: none;*/
+/*}*/
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply some basic styles to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Style the main container */
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Style the left-side-cards container */
 .left-side-cards {
-    width: 30%;
-    padding-left: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.add-card {
-    display: flex;
-    flex-direction: column;
-
+/* Style the form elements */
+form.add-card {
+    margin-bottom: 20px;
 }
 
-.left-side-cards button {
-    margin-top: 20px;
-    width: 150px;
-}
-
-.edit {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.edit > label {
-    padding-bottom: 20px;
-}
-
-.edit button {
-    width: 150px;
-}
-
-.plane-card {
-    padding-left: 10px;
-    padding-bottom: 5px;
-    margin-right: 15px;
+form.add-card h3 {
+    font-size: 20px;
     margin-bottom: 10px;
-    border: 2px solid aqua;
-    border-radius: 20px;
-    width: 10rem;
 }
 
-.items-to-list {
-    display: flex;
-    flex-flow: wrap;
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button#button-submit {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Style the Sort by the water level checkbox */
+.sort-volume {
+    margin-bottom: 20px;
+}
+
+.sort-volume h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+input#checkbox {
+    margin-right: 5px;
+}
+
+/* Style the Count button and output */
+.count-amount {
+    text-align: center;
+}
+
+.count-amount h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+button#count-button {
+    background-color: #28A745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+p#count-output {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Style the show-list container */
+.show-list {
+    flex: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Style the list items */
+ul#items-to-list {
     list-style: none;
+}
+
+ul#items-to-list li {
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .container {
