@@ -2,6 +2,7 @@ import React from "react";
 import {BrowserRouter as Router, NavLink, Route, Routes} from "react-router-dom"
 import {LinkingWrapper} from "./Navigation.styled";
 import Home from "../Home/Home";
+import Catalog from "../Catalog/Catalog";
 
 export const Navigation = () => {
     return (
@@ -21,6 +22,7 @@ export const Navigation = () => {
                     </ul>
                     <Routes>
                         <Route path="/" element={<Home/>}></Route>
+                        <Route path="/catalog" element={<Catalog/>}></Route>
                     </Routes>
                 </LinkingWrapper>
         </Router>

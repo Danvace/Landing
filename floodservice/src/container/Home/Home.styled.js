@@ -48,6 +48,7 @@ export const CardBasicStyle = styled.div`
   
   .price-and-button {
     padding-top: 10px;
+    padding-bottom: 10px; 
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -55,4 +56,9 @@ export const CardBasicStyle = styled.div`
   .price {
     color: #f9f9f9;
   }
+  
+  p {
+    color: #f9f9f9;
+  }
+  
 `

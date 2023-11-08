@@ -9,6 +9,7 @@ import {CardContainer} from "./CardContainer.styled";
 
 let info = [
     {
+        image: DelorianDM12,
         title: "DeLorean DMC-12",
         span:
             "The DeLorean DMC-12 is an iconic sports car with a unique stainless steel body, gull-wing doors, and pop culture status. It's a classic loved by collectors and fans.",
@@ -16,6 +17,7 @@ let info = [
         button: "Show more",
     },
     {
+        image: DelorianAlfa5,
         title: "DeLorean Alpha5",
         span:
             "The Delorean Alfa 5 is an iconic sports car with a unique stainless steel body, gull-wing doors, and pop culture status. It's a classic loved by collectors and fans.",
@@ -23,6 +25,7 @@ let info = [
         button: "Show more",
     },
     {
+        image: DeloreanDMC,
         title: "Delorian Old",
         span:
             "The Delorean Alfa 5 is an iconic sports car with a unique stainless steel body, gull-wing doors, and pop culture status. It's a classic loved by collectors and fans.",
@@ -37,16 +40,7 @@ export const CarsContainer = () => (
             {info.map((item, index) => (
                 <li key={index}>
                     <CardBasicStyle>
-                        {item.title === "DeLorean DMC-12" && (
-                            <img src={DelorianDM12} alt="DeLorean DMC-12" />
-                        )}
-                        {item.title === "DeLorean Alpha5" && (
-                            <img src={DelorianAlfa5} alt="DeLorean Alpha5" />
-                        )}
-                        {item.title === "Delorian Old" && (
-                            <img src={DeloreanDMC} alt="Delorean Old" />
-                        )}
-
+                        <img src={item.image} alt="car"/>
                         <h2>{item.title}</h2>
                         <span className={"description"}>{item.span}</span>
                         <div className={"price-and-button"}>
