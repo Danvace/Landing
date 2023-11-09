@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardBasicStyle} from "../Home/Home.styled";
+import {CardBasicStyle} from "../../Home/Home.styled";
 import {Button} from "antd";
 
 const CarCard = ({ car }) => (

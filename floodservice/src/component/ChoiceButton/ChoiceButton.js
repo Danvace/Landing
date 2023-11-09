@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import {ButtonContainer, ChoiceButton} from "./ChoiceButton.styled"
+import React, {useState} from 'react';
+import {ButtonContainer, ChoiceButton} from "./ChoiceButton.styled";
 
 function ThreeChoiceButton() {
     const [selectedChoice, setSelectedChoice] = useState(null);
 
     const handleChoiceClick = (choice) => {
-        setSelectedChoice(choice);
+        setSelectedChoice(selectedChoice === choice ? null : choice);
     };
 
     return (

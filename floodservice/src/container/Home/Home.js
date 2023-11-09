@@ -1,7 +1,7 @@
 import React from "react";
 import CarGood from "../../../src/icons/car1.webp"
 import {MainPhotoContainer} from "./Home.styled";
-import {CarsContainer} from "../CardContainer/CardContainer";
+import {CarsContainer} from "./CardContainer/CardContainer";
 
 export const Home = () => (
     <div>

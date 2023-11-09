@@ -1,9 +1,9 @@
 import React from "react";
-import {CardBasicStyle} from "../Home/Home.styled";
-import DelorianDM12 from "../../icons/img_1.png";
+import {CardBasicStyle} from "../Home.styled";
+import DelorianDM12 from "../../../icons/img_1.png";
 import {Button} from "antd";
-import DelorianAlfa5 from "../../icons/img.png";
-import DeloreanDMC from "../../icons/img_2.png";
+import DelorianAlfa5 from "../../../icons/img.png";
+import DeloreanDMC from "../../../icons/img_2.png";
 import {CardContainer} from "./CardContainer.styled";
 
 

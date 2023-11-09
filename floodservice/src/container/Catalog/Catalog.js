@@ -1,6 +1,6 @@
 import React from "react";
 import {FilterSection} from "./FilterSection/FilterSection";
-import CatalogContainer from "../CatalogContainer/CatalogContainer";
+import CatalogContainer from "./CatalogContainer/CatalogContainer";
 import Delorian from "../../icons/img.png"
 
 const cars = [
