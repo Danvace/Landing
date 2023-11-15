@@ -5,15 +5,18 @@ export const CardContainer = styled.div`
     display: flex;
     justify-content: space-around;
     margin-top: 30px;
+    
   ul {
     width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    flex-wrap: wrap;
   }
   
   ul > li {
+    padding-top: 10px;
     list-style: none;
   }
+ 
 `
