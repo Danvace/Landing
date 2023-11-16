@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 80%;
 `;
 
 export const ChoiceButton = styled.div`
@@ -14,11 +15,12 @@ export const ChoiceButton = styled.div`
   color: ${(props) => (props.selected ? '#fff' : 'inherit')};
   display: flex;
   flex-direction: column;
-    justify-content: center;
+  justify-content: space-between;
 
   &:hover {
     background-color: #f0f0f0;
   }
+  
 `;
 
 export const StyledSelect = styled.select`

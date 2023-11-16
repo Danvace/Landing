@@ -16,7 +16,7 @@ export const Home = () => (
                 </p>
             </div>
         </MainPhotoContainer>
-        <CarsContainer/>
+        <CarsContainer amount ={3}/>
     </div>
 )
 

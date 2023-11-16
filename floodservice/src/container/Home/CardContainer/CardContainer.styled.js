@@ -7,14 +7,23 @@ export const CardContainer = styled.div`
     margin-top: 30px;
     
   ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .card {
     width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    padding-bottom: 20px;
   }
   
-  ul > li {
+  ul  li {
     padding-top: 10px;
     list-style: none;
   }

@@ -5,61 +5,80 @@ import {Button} from "antd";
 import DelorianAlfa5 from "../../../icons/img.png";
 import DeloreanDMC from "../../../icons/img_2.png";
 import {CardContainer} from "./CardContainer.styled";
+import ShowButton from "../../../component/ShowButton/ShowButton";
+import {Link} from "react-router-dom";
 
+const CAR = "/car/"
 
-let info = [
+let cars = [
     {
+        carId: 1,
         image: DelorianDM12,
         title: "DeLorean DMC-12",
         span:
             "The DeLorean DMC-12 is an iconic sports car with a unique stainless steel body, gull-wing doors, and pop culture status. It's a classic loved by collectors and fans.",
         price: "250,000$",
-        button: "Show more",
+        volume: 2.85,
+        year: 1985,
     },
     {
+        carId: 2,
         image: DelorianAlfa5,
         title: "DeLorean Alpha5",
         span:
             "The Delorean Alfa 5 is an iconic sports car with a unique stainless steel body, gull-wing doors, and pop culture status. It's a classic loved by collectors and fans.",
         price: "40000$",
-        button: "Show more",
+        volume: 2.95,
+        year: 2020,
     },
     {
+        carId: 3,
         image: DeloreanDMC,
         title: "Delorian Old",
         span:
             "The Delorean Alfa 5 is an iconic sports car with a unique stainless steel body, gull-wing doors, and pop culture status. It's a classic loved by collectors and fans.",
         price: "20000$",
-        button: "Show more",
+        volume: 3,
+        year: 1985,
     },
     {
+        carId: 4,
         image: DelorianDM12,
         title: "DeLorean DMC-12",
         span:
             "The DeLorean DMC-12 is an iconic sports car with a unique stainless steel body, gull-wing doors, and pop culture status. It's a classic loved by collectors and fans.",
         price: "250,000$",
-        button: "Show more",
+        volume: 2.85,
+        year: 1985,
     },
     {
+        carId: 5,
         image: DelorianAlfa5,
         title: "DeLorean Alpha5",
         span:
             "The Delorean Alfa 5 is an iconic sports car with a unique stainless steel body, gull-wing doors, and pop culture status. It's a classic loved by collectors and fans.",
         price: "40000$",
-        button: "Show more",
+        volume: 4,
+        year: 2020,
     },
     {
+        carId: 6,
         image: DeloreanDMC,
         title: "Delorian Old",
         span:
             "The Delorean Alfa 5 is an iconic sports car with a unique stainless steel body, gull-wing doors, and pop culture status. It's a classic loved by collectors and fans.",
         price: "20000$",
-        button: "Show more",
+        volume: 3,
+        year: 1985,
     },
 ];
 
-export const CarsContainer = () => {
-    const [visible, setVisible] = useState(3);
+export function getCars() {
+    return cars;
+}
+
+export const CarsContainer = (props) => {
+    const [visible, setVisible] = useState(props.amount);
 
     function showMoreItems() {
         setVisible((prevValue) => prevValue + 3);
@@ -68,22 +87,31 @@ export const CarsContainer = () => {
     return (
         <CardContainer>
             <ul>
-                {info.slice(0, visible).map((item, index) => (
-                    <li key={index}>
-                        <CardBasicStyle>
-                            <img src={item.image} alt="car"/>
-                            <h2>{item.title}</h2>
-                            <span className={"description"}>{item.span}</span>
-                            <div className={"price-and-button"}>
-                                <span className={"price"}>{item.price}</span>
-                                <Button>{item.button}</Button>
-                            </div>
-                        </CardBasicStyle>
-                    </li>
-                ))}
-                {visible < info.length && (
-                    <Button onClick={showMoreItems}>Show More</Button>
-                )}
+                <div className={"card"}>
+                    {cars.slice(0, visible).map((item, index) => (
+                        <li key={index}>
+                            <CardBasicStyle>
+                                <img src={item.image} alt="car"/>
+                                <h2>{item.title}</h2>
+                                <span className={"description"}>{item.span}</span>
+                                <div className={"price-and-button"}>
+                                    <span className={"price"}>{item.price}</span>
+                                    <Link to={CAR + `${item.carId}`}>
+                                        <ShowButton/>
+                                    </Link>
+                                </div>
+                            </CardBasicStyle>
+                        </li>
+                    ))}
+                </div>
+                <div>
+                    {visible < cars.length && (
+                        <Button onClick={showMoreItems}>Show More</Button>
+                    )}
+                    {visible === cars.length && (
+                        <Button onClick={() => setVisible(3)}>Show Less</Button>
+                    )}
+                </div>
             </ul>
         </CardContainer>
     )

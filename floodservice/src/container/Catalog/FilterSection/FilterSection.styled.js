@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const FilterSectionStyled = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
   .sort-by {
@@ -12,7 +12,7 @@ export const FilterSectionStyled = styled.div`
   }
 
   .center {
-    width: 600px;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: space-around;

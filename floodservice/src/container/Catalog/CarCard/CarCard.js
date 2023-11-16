@@ -1,6 +1,7 @@
 import React from 'react';
 import {CardBasicStyle} from "../../Home/Home.styled";
 import {Button} from "antd";
+import {Link} from "react-router-dom";
 
 const CarCard = ({ car }) => (
     <CardBasicStyle className="car-card">
@@ -10,7 +11,9 @@ const CarCard = ({ car }) => (
         <p>Year: {car.year}</p>
         <div className="price-and-button">
             <span className="price">${car.price}</span>
-            <Button>Buy Now</Button>
+            <Link to={"/car/" + car.carId}>
+                <Button>Buy Now</Button>
+            </Link>
         </div>
     </CardBasicStyle>
 );

@@ -6,7 +6,7 @@ import Navigation from "../../Navigation/Navigation";
 
 const Header = () => (
     <HeaderContainer>
-        <h1><a href="">DeLorean</a></h1>
+        <h1><a href="http://localhost:3000/">DeLorean</a></h1>
         <Button>Contact us</Button>
     </HeaderContainer>
 );
