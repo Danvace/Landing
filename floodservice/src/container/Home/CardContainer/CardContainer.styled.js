@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 30px;
+
   ul {
     width: 100%;
     display: flex;
@@ -13,7 +14,7 @@ export const CardContainer = styled.div`
     align-items: center;
     flex-direction: column;
   }
-  
+
   .card {
     width: 80%;
     display: flex;
@@ -22,10 +23,14 @@ export const CardContainer = styled.div`
     flex-wrap: wrap;
     padding-bottom: 20px;
   }
-  
-  ul  li {
+
+  ul li {
     padding-top: 10px;
     list-style: none;
   }
- 
+  
+  div > input { 
+    font-size: 20px;
+  }
+
 `

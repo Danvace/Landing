@@ -9,6 +9,7 @@ export const FilterSectionStyled = styled.div`
 
   .sort-by {
     padding-right: 30px;
+    font-size:20px
   }
 
   .center {

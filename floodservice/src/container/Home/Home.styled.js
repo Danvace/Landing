@@ -34,6 +34,7 @@ export const CardBasicStyle = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 25px;
+  object-fit: cover;
   img {
     border-radius: 25px;
     height: 200px;

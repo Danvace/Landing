@@ -7,7 +7,7 @@ const CatalogContainer = (props) => {
 
     return (
         <CatalogContainerStyled className="car-container">
-            <CarsContainer amount ={6}/>
+            <CarsContainer cars = {props.cars} amount ={6}/>
         </CatalogContainerStyled>
     );
 };

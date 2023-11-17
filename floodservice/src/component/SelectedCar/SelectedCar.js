@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import {getCars} from "../../container/Home/CardContainer/CardContainer";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {SelectedCarStyled} from "./SelectedCar.styled";
+import {Button} from "antd";
 
 export const SelectedCar = () => {
     const [cars, setCars] = useState(getCars())
@@ -10,6 +11,9 @@ export const SelectedCar = () => {
     const car = cars.find(car => car.carId === Number(carId))
     return (
         <SelectedCarStyled>
+            <Link to ={"/catalog"}>
+                <button>Go back</button>
+            </Link>
             {car ? (
                 <React.Fragment>
                     <h1>{car.title}</h1>
