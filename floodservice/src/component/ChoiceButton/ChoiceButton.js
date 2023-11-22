@@ -24,10 +24,10 @@ function ThreeChoiceButton(props) {
     const applyFilters = () => {
         const filteredCars = getCars().filter((car) => {
             return (
-                (!selectedOptions.price ||
-                    (selectedOptions.price === "over 24000" && parseFloat(car.price) > 24000) ||
-                    (selectedOptions.price === "less than 23000" && parseFloat(car.price) < 23000)) ||
-                (selectedOptions.price === "20000-50000" && parseFloat(car.price) > 20000 && parseFloat(car.price) < 50000)&&
+                ((!selectedOptions.price ||
+                        (selectedOptions.price === "over 24000" && parseFloat(car.price) > 24000) ||
+                        (selectedOptions.price === "less than 23000" && parseFloat(car.price) < 23000)) ||
+                    (selectedOptions.price === "20000-50000" && parseFloat(car.price) > 20000 && parseFloat(car.price) < 50000)) &&
                 (!selectedOptions.year ||
                     (selectedOptions.year === "newer than 2005" && car.year > 2005) ||
                     (selectedOptions.year === "newer than 2020" && car.year > 2020)) &&
@@ -39,6 +39,7 @@ function ThreeChoiceButton(props) {
         setCars(filteredCars);
         props.propsUp(filteredCars);
     };
+
 
 
     const handleOptionChange = (filterTitle, option) => {
