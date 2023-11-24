@@ -18,7 +18,7 @@ export function getCars() {
         });
 }
 
-export function getCarsWithFilters({price,year,engineVolume}) {
+export function getCarsWithFilters({price, year, engineVolume}) {
     return axios.get(`http://localhost:8080/api/cars/${price}/${year}/${engineVolume}`)
         .then(function (response) {
             return response.data;

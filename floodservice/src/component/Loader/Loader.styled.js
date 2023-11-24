@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 const rotateAnimation = keyframes`
   0% {
@@ -30,7 +30,7 @@ const LoaderBeforeAfter = styled.div`
 const LoaderBefore = styled(LoaderBeforeAfter)`
   width: 5.2em;
   height: 10.2em;
-  background: #0dc5c1;
+  background: #888888;
   border-radius: 10.2em 0 0 10.2em;
   top: -0.1em;
   left: -0.1em;
@@ -41,7 +41,7 @@ const LoaderBefore = styled(LoaderBeforeAfter)`
 const LoaderAfter = styled(LoaderBeforeAfter)`
   width: 5.2em;
   height: 10.2em;
-  background: #0dc5c1;
+  background: #888888;
   border-radius: 0 10.2em 10.2em 0;
   top: -0.1em;
   left: 4.9em;
@@ -51,8 +51,8 @@ const LoaderAfter = styled(LoaderBeforeAfter)`
 
 const StyledLoader = () => (
     <Loader>
-        <LoaderBefore />
-        <LoaderAfter />
+        <LoaderBefore/>
+        <LoaderAfter/>
     </Loader>
 );
 

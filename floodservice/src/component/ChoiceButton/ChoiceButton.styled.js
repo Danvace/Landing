@@ -20,18 +20,23 @@ export const ChoiceButton = styled.div`
   &:hover {
     background-color: #f0f0f0;
   }
-  
+
   option {
     font-size: 40px;
   }
-  
+
 `;
 
 export const SelectWrapper = styled.div`
   width: 150px;
   height: 30px;
-  
+
   select {
     font-size: 20px;
   }
+`
+
+export const LoaderLimiter = styled.div`
+  width: 15px;
+  height: 15px;
 `

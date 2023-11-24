@@ -10,7 +10,6 @@ export const Catalog = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Fetch data when the component mounts
         getCars()
             .then(data => setFilteredData(data))
             .catch(error => console.error('Error fetching cars:', error))
@@ -25,13 +24,11 @@ export const Catalog = () => {
     return (
         <div>
             {loading ? (
-                // Display a loading indicator while data is being fetched
                 <StyledLoader>Loading...</StyledLoader>
             ) : (
-                // Once data is loaded, render FilterSection and CatalogContainer
                 <>
-                    <FilterSection propsUp={handleFilteredCars} />
-                    <CatalogContainer cars={filteredData} />
+                    <FilterSection propsUp={handleFilteredCars}/>
+                    <CatalogContainer cars={filteredData}/>
                 </>
             )}
         </div>

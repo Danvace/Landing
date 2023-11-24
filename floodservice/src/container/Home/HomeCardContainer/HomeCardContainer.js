@@ -15,13 +15,12 @@ export const HomeCarsContainer = (props) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Use useEffect to fetch data when the component mounts
         getCars()
             .then(data => setCars(data))
             .catch(error => console.error('Error fetching cars:', error))
             .finally(() => setLoading(false))
 
-    }, []); // Empty dependency array ensures the effect runs only once on mount
+    }, []);
 
     function showMoreItems() {
         setVisible((prevValue) => prevValue + 3);
@@ -30,20 +29,20 @@ export const HomeCarsContainer = (props) => {
     return (
         <CardContainer>
             {loading ? (
-                <StyledLoader /> // Show loader while data is being fetched
+                <StyledLoader/>
             ) : (
                 <ul>
                     <div className={"card"}>
                         {cars.slice(0, visible).map((item, index) => (
                             <li key={index}>
                                 <CardBasicStyle>
-                                    <img src={item.image} alt="car" />
+                                    <img src={item.image} alt="car"/>
                                     <h2>{item.title}</h2>
                                     <span className={"description"}>{item.span}</span>
                                     <div className={"price-and-button"}>
                                         <span className={"price"}>{item.price}</span>
                                         <Link to={CAR + `${item.carId}`}>
-                                            <ShowButton />
+                                            <ShowButton/>
                                         </Link>
                                     </div>
                                 </CardBasicStyle>
