@@ -1,19 +1,27 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {CardBasicStyle} from "../Home.styled";
-import DelorianDM12 from "../../../icons/img_1.png";
 import {Button} from "antd";
-import DelorianAlfa5 from "../../../icons/img.png";
-import DeloreanDMC from "../../../icons/img_2.png";
 import {CardContainer} from "../CardContainer/CardContainer.styled"
 import ShowButton from "../../../component/ShowButton/ShowButton";
 import {Link} from "react-router-dom";
-import {getCars} from "../CardContainer/CardContainer";
+import {getCars} from "../../../api";
+import StyledLoader from "../../../component/Loader/Loader.styled";
 
 const CAR = "/car/"
 
-const cars = getCars()
 export const HomeCarsContainer = (props) => {
+    const [cars, setCars] = useState([]);
     const [visible, setVisible] = useState(props.amount);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Use useEffect to fetch data when the component mounts
+        getCars()
+            .then(data => setCars(data))
+            .catch(error => console.error('Error fetching cars:', error))
+            .finally(() => setLoading(false))
+
+    }, []); // Empty dependency array ensures the effect runs only once on mount
 
     function showMoreItems() {
         setVisible((prevValue) => prevValue + 3);
@@ -21,34 +29,37 @@ export const HomeCarsContainer = (props) => {
 
     return (
         <CardContainer>
-            <ul>
-                <div className={"card"}>
-                    {cars.slice(0, visible).map((item, index) => (
-                        <li key={index}>
-                            <CardBasicStyle>
-                                <img src={item.image} alt="car"/>
-                                <h2>{item.title}</h2>
-                                <span className={"description"}>{item.span}</span>
-                                <div className={"price-and-button"}>
-                                    <span className={"price"}>{item.price}</span>
-                                    <Link to={CAR + `${item.carId}`}>
-                                        <ShowButton/>
-                                    </Link>
-                                </div>
-                            </CardBasicStyle>
-                        </li>
-                    ))}
-                </div>
-                <div>
-                    {visible < cars.length && (
-                        <Button onClick={showMoreItems}>Show More</Button>
-                    )}
-                    {visible === cars.length && (
-                        <Button onClick={() => setVisible(3)}>Show Less</Button>
-                    )}
-                </div>
-            </ul>
+            {loading ? (
+                <StyledLoader /> // Show loader while data is being fetched
+            ) : (
+                <ul>
+                    <div className={"card"}>
+                        {cars.slice(0, visible).map((item, index) => (
+                            <li key={index}>
+                                <CardBasicStyle>
+                                    <img src={item.image} alt="car" />
+                                    <h2>{item.title}</h2>
+                                    <span className={"description"}>{item.span}</span>
+                                    <div className={"price-and-button"}>
+                                        <span className={"price"}>{item.price}</span>
+                                        <Link to={CAR + `${item.carId}`}>
+                                            <ShowButton />
+                                        </Link>
+                                    </div>
+                                </CardBasicStyle>
+                            </li>
+                        ))}
+                    </div>
+                    <div>
+                        {visible < cars.length && (
+                            <Button onClick={showMoreItems}>Show More</Button>
+                        )}
+                        {visible === cars.length && (
+                            <Button onClick={() => setVisible(3)}>Show Less</Button>
+                        )}
+                    </div>
+                </ul>
+            )}
         </CardContainer>
-    )
-        ;
+    );
 };

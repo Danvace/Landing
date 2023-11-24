@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import {ButtonContainer, SelectWrapper} from "./ChoiceButton.styled";
 import {Button} from "antd";
-import {getCars} from "../../container/Home/CardContainer/CardContainer";
+import {getCars, getCarsWithFilters} from "../../api";
 
 function ThreeChoiceButton(props) {
     const [openFilter, setOpenFilter] = useState(null);
     const [selectedOptions, setSelectedOptions] = useState({});
     const [cars, setCars] = useState(getCars());
-
 
     const handleCancel = () => {
         setSelectedOptions({});
@@ -21,23 +20,44 @@ function ThreeChoiceButton(props) {
         setOpenFilter(openFilter === filterTitle ? null : filterTitle);
     };
 
-    const applyFilters = () => {
-        const filteredCars = getCars().filter((car) => {
-            return (
-                ((!selectedOptions.price ||
-                        (selectedOptions.price === "over 24000" && parseFloat(car.price) > 24000) ||
-                        (selectedOptions.price === "less than 23000" && parseFloat(car.price) < 23000)) ||
-                    (selectedOptions.price === "20000-50000" && parseFloat(car.price) > 20000 && parseFloat(car.price) < 50000)) &&
-                (!selectedOptions.year ||
-                    (selectedOptions.year === "newer than 2005" && car.year > 2005) ||
-                    (selectedOptions.year === "newer than 2020" && car.year > 2020)) &&
-                (!selectedOptions.engineVolume ||
-                    (selectedOptions.engineVolume === "over 2l" && car.volume > 2) ||
-                    (selectedOptions.engineVolume === "over 3l" && car.volume > 3))
-            );
-        });
-        setCars(filteredCars);
-        props.propsUp(filteredCars);
+    // const applyFilters = () => {
+    //     // const filteredCars = getCars().filter((car) => {
+    //     //     return (
+    //     //         ((!selectedOptions.price ||
+    //     //                 (selectedOptions.price === "over 24000" && parseFloat(car.price) > 24000) ||
+    //     //                 (selectedOptions.price === "less than 23000" && parseFloat(car.price) < 23000)) ||
+    //     //             (selectedOptions.price === "20000-50000" && parseFloat(car.price) > 20000 && parseFloat(car.price) < 50000)) &&
+    //     //         (!selectedOptions.year ||
+    //     //             (selectedOptions.year === "newer than 2005" && car.year > 2005) ||
+    //     //             (selectedOptions.year === "newer than 2020" && car.year > 2020)) &&
+    //     //         (!selectedOptions.engineVolume ||
+    //     //             (selectedOptions.engineVolume === "over 2l" && car.volume > 2) ||
+    //     //             (selectedOptions.engineVolume === "over 3l" && car.volume > 3))
+    //     //     );
+    //     // });
+    //     // setCars(filteredCars);
+    //     // props.propsUp(filteredCars);
+    //     const filteredCars = getCarsWithFilters(selectedOptions)
+    //     setCars(filteredCars)
+    //     props.propsUp(filteredCars)
+    // };
+    const applyFilters = async () => {
+        try {
+            const filteredCars = await getCarsWithFilters(selectedOptions);
+
+            if (Array.isArray(filteredCars)) {
+                setCars(filteredCars);
+                props.propsUp(filteredCars);
+            } else if (filteredCars && typeof filteredCars.filter === 'function') {
+                // If it's an object with a filter method
+                setCars([...filteredCars]); // Convert to an array if needed
+                props.propsUp([...filteredCars]);
+            } else {
+                console.error('Invalid data returned by getCarsWithFilters');
+            }
+        } catch (error) {
+            console.error('Error applying filters:', error);
+        }
     };
 
 

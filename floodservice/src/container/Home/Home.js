@@ -1,7 +1,6 @@
 import React from "react";
 import CarGood from "../../../src/icons/car1.webp"
 import {MainPhotoContainer} from "./Home.styled";
-import {CarsContainer} from "./CardContainer/CardContainer";
 import {HomeCarsContainer} from "./HomeCardContainer/HomeCardContainer";
 
 export const Home = () => (
@@ -17,7 +16,7 @@ export const Home = () => (
                 </p>
             </div>
         </MainPhotoContainer>
-        <HomeCarsContainer amount ={3}/>
+        <HomeCarsContainer amount={3}/>
     </div>
 )
 

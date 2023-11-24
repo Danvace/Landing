@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import {FilterSectionStyled} from "./FilterSection.styled";
 import ChoiceButton from "../../../component/ChoiceButton/ChoiceButton";
-import {Button} from "antd";
 
 const filters = [
     {
@@ -28,7 +27,7 @@ export const FilterSection = (props) => {
         <FilterSectionStyled>
             <div className={"center"}>
                 <span className={"sort-by"}>Sort by:</span>
-                <ChoiceButton filters={filters} propsUp = {handleFiltersCars}/>
+                <ChoiceButton filters={filters} propsUp={handleFiltersCars}/>
             </div>
         </FilterSectionStyled>
     )

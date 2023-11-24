@@ -6,19 +6,23 @@ export const MainPhotoContainer = styled.div`
   padding-top: 5%;
   align-items: center;
   width: 100%;
+
   img {
     width: 600px;
     border-radius: 5%;
   }
+
   .description {
     width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   h1 {
     color: lightyellow;
   }
+
   p {
     font-size: 15px;
     font-style: italic;
@@ -35,31 +39,36 @@ export const CardBasicStyle = styled.div`
   flex-direction: column;
   border-radius: 25px;
   object-fit: cover;
+
   img {
     border-radius: 25px;
     height: 200px;
+    object-fit: cover;
   }
+
   h2 {
     color: #f9f9f9;
   }
+
   .description {
     color: #f9f9f9;
     font-weight: 200;
   }
-  
+
   .price-and-button {
     padding-top: 10px;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
+
   .price {
     color: #f9f9f9;
   }
-  
+
   p {
     color: #f9f9f9;
   }
-  
+
 `

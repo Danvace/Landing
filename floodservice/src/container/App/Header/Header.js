@@ -2,7 +2,6 @@ import React from "react";
 
 import {HeaderContainer} from "./Header.styled";
 import {Button} from 'antd';
-import Navigation from "../../Navigation/Navigation";
 
 const Header = () => (
     <HeaderContainer>
