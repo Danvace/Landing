@@ -4,6 +4,8 @@ import {Button} from "antd";
 import {CardContainer, NoItemsMessage} from "./CardContainer.styled";
 import ShowButton from "../../../component/ShowButton/ShowButton";
 import {Link} from "react-router-dom";
+import {type} from "@testing-library/user-event/dist/type";
+import {getCars} from "../../../api";
 // import axios from 'axios';
 
 const CAR = "/car/"
@@ -12,10 +14,24 @@ export const CarsContainer = (props) => {
     const [visible, setVisible] = useState(props.amount);
     const [cars, setCars] = useState(props.cars);
     const [searchValue, setSearchValue] = useState("");
-
     useEffect(() => {
-        setCars(props.cars);
+        if (props.cars instanceof Promise) {
+            const fetchData = async () => {
+                try {
+                    const resolvedCars = await props.cars;
+
+                    setCars(resolvedCars);
+                } catch (error) {
+                    console.error('Error fetching cars:', error);
+                }
+            };
+
+            fetchData();
+        } else {
+            setCars(props.cars);
+        }
     }, [props.cars]);
+
 
     function handleSearchInputChange(event) {
         setSearchValue(event.target.value);

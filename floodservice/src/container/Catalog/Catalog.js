@@ -3,6 +3,7 @@ import {FilterSection} from "./FilterSection/FilterSection";
 import CatalogContainer from "./CatalogContainer/CatalogContainer";
 import {getCars} from "../../api";
 import StyledLoader from "../../component/Loader/Loader.styled";
+import {StyledCatalog} from "./Catalog.styled";
 
 
 export const Catalog = () => {
@@ -22,7 +23,7 @@ export const Catalog = () => {
     }
 
     return (
-        <div>
+        <StyledCatalog>
             {loading ? (
                 <StyledLoader>Loading...</StyledLoader>
             ) : (
@@ -31,7 +32,7 @@ export const Catalog = () => {
                     <CatalogContainer cars={filteredData}/>
                 </>
             )}
-        </div>
+        </StyledCatalog>
     );
 }
 

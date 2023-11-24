@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 import {SelectedCarStyled} from "./SelectedCar.styled";
-import {getCars} from "../../api";
+import {getCarById, getCars} from "../../api";
 import StyledLoader from "../Loader/Loader.styled";
 
 export const SelectedCar = () => {
-    const [cars, setCars] = useState([]);
+    const [car, setCars] = useState(null);
     const [loading, setLoading] = useState(true);
     const location = useLocation();
     const carId = location.pathname.split("/")[2];
     console.log(carId);
 
     useEffect(() => {
-        getCars()
+        getCarById(carId)
             .then((data) => {
                 setCars(data);
                 setLoading(false);
@@ -23,7 +23,7 @@ export const SelectedCar = () => {
             });
     }, []);
 
-    const car = cars.find((car) => car.id === Number(carId));
+    // const car = cars.find((car) => car.id === Number(carId));
 
     return (
         <SelectedCarStyled>

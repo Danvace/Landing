@@ -6,6 +6,7 @@ export const CardContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   margin-top: 30px;
+  //min-height: 600px;
 
   ul {
     min-height: 500px;

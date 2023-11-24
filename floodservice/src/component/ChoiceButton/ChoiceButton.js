@@ -13,9 +13,10 @@ function ThreeChoiceButton(props) {
     const handleCancel = () => {
         setSelectedOptions({});
         setOpenFilter(null);
-        setCars(getCars);
+        setCars(getCars());  // Call the getCars function
         props.propsUp(getCars());
     };
+
 
     const toggleFilter = (filterTitle) => {
         setOpenFilter(openFilter === filterTitle ? null : filterTitle);
