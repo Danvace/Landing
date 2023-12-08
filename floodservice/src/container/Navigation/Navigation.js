@@ -4,6 +4,7 @@ import {LinkingWrapper} from "./Navigation.styled";
 import Home from "../Home/Home";
 import Catalog from "../Catalog/Catalog";
 import SelectedCar from "../../component/SelectedCar/SelectedCar";
+import CartPage from "../CartPage/CartPage";
 
 export const Navigation = () => {
     return (
@@ -16,11 +17,15 @@ export const Navigation = () => {
                     <li>
                         <NavLink to="/catalog">Catalog</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/cartPage">Cart Page</NavLink>
+                    </li>
                 </ul>
                 <Routes>
                     <Route path="/" element={<Home/>}></Route>
                     <Route path="/catalog" element={<Catalog/>}></Route>
                     <Route path="/car/*" element={<SelectedCar/>}></Route>
+                    <Route path={"/cartPage"} element={<CartPage/>}></Route>
                 </Routes>
             </LinkingWrapper>
         </Router>

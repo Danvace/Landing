@@ -16,12 +16,7 @@ function ThreeChoiceButton(props) {
         setCars(getCars());  // Call the getCars function
         props.propsUp(getCars());
     };
-
-
-    const toggleFilter = (filterTitle) => {
-        setOpenFilter(openFilter === filterTitle ? null : filterTitle);
-    };
-
+    
     const applyFilters = async () => {
         try {
             setLoading(true);
