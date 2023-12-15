@@ -5,6 +5,8 @@ import {getCarById} from "../../api";
 import StyledLoader from "../Loader/Loader.styled";
 import {addToCart} from "../../container/CartPage/cartActions";
 import {useDispatch, useSelector} from "react-redux";
+import toastr from 'toastr';
+import 'toastr/build/toastr.css';
 
 export const SelectedCar = () => {
     const [car, setCars] = useState(null);
@@ -29,7 +31,8 @@ export const SelectedCar = () => {
     const [message, setMessage] = useState(null);
     const handleAddToCart = (quantity) => {
         dispatch(addToCart(car, quantity));
-        setMessage(`${car.title} added to cart!`)
+        setMessage(`${car.title} added to cart!`);
+        toastr.success(`${quantity} ${car.title} added to cart!`);
         setTimeout(() => setMessage(null), 3000);
     };
 

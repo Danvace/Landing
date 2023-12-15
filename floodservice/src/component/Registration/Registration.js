@@ -44,6 +44,7 @@ const Register = () => {
                     name="firstName"
                     value={formik.values.firstName}
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     placeholder="First Name"
                 />
                 {formik.touched.firstName && formik.errors.firstName &&
@@ -54,6 +55,7 @@ const Register = () => {
                     name="lastName"
                     value={formik.values.lastName}
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     placeholder="Last Name"
                 />
                 {formik.touched.lastName && formik.errors.lastName && <ErrorText>{formik.errors.lastName}</ErrorText>}
@@ -63,6 +65,7 @@ const Register = () => {
                     name="email"
                     value={formik.values.email}
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     placeholder="Email"
                 />
                 {formik.touched.email && formik.errors.email && <ErrorText>{formik.errors.email}</ErrorText>}
@@ -72,6 +75,7 @@ const Register = () => {
                     name="password"
                     value={formik.values.password}
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     placeholder="Password"
                 />
                 {formik.touched.password && formik.errors.password && <ErrorText>{formik.errors.password}</ErrorText>}
