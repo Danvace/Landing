@@ -20,7 +20,7 @@ const cartReducer = (state = initialState, action) => {
                 saveCartToStorage(updatedState);
                 return updatedState;
             } else {
-                const newState = [...state, { ...action.payload, quantity: action.payload.quantity }];
+                const newState = [...state, {...action.payload, quantity: action.payload.quantity}];
                 saveCartToStorage(newState);
                 return newState;
             }
@@ -32,7 +32,7 @@ const cartReducer = (state = initialState, action) => {
 
         case 'UPDATE_QUANTITY':
             const updatedCart = state.map((item) =>
-                item.id === action.payload.carId ? { ...item, quantity: action.payload.quantity } : item
+                item.id === action.payload.carId ? {...item, quantity: action.payload.quantity} : item
             );
             saveCartToStorage(updatedCart);
             return updatedCart;

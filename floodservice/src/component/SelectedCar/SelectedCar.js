@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 import {SelectedCarStyled, StyledCart} from "./SelectedCar.styled";
-import {getCarById, getCars} from "../../api";
+import {getCarById} from "../../api";
 import StyledLoader from "../Loader/Loader.styled";
 import {addToCart} from "../../container/CartPage/cartActions";
 import {useDispatch, useSelector} from "react-redux";
@@ -11,7 +11,6 @@ export const SelectedCar = () => {
     const [loading, setLoading] = useState(true);
     const location = useLocation();
     const carId = location.pathname.split("/")[2];
-    console.log(carId);
 
     useEffect(() => {
         getCarById(carId)

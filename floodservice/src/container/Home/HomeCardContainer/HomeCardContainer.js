@@ -2,8 +2,6 @@ import React, {useEffect, useState} from "react";
 import {CardBasicStyle} from "../Home.styled";
 import {Button} from "antd";
 import {CardContainer} from "../CardContainer/CardContainer.styled"
-import ShowButton from "../../../component/ShowButton/ShowButton";
-import {Link} from "react-router-dom";
 import {getCars} from "../../../api";
 import StyledLoader from "../../../component/Loader/Loader.styled";
 
@@ -41,9 +39,9 @@ export const HomeCarsContainer = (props) => {
                                     <span className={"description"}>{item.span}</span>
                                     <div className={"price-and-button"}>
                                         <span className={"price"}>{item.price}</span>
-                                        <Link to={CAR + `${item.carId}`}>
-                                            <ShowButton/>
-                                        </Link>
+                                        {/*<Link to={CAR + `${item.carId}`}>*/}
+                                        {/*    <ShowButton/>*/}
+                                        {/*</Link>*/}
                                     </div>
                                 </CardBasicStyle>
                             </li>

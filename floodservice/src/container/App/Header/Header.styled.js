@@ -9,15 +9,17 @@ export const HeaderContainer = styled.div`
   background-color: #282c34;
   color: white;
   font-size: calc(10px + 2vmin);
+
   h1 {
-    font-size: 36px; 
-    color: #282c34; 
-    text-align: center; 
-    padding: 20px 0; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    font-weight: bold; 
+    font-size: 36px;
+    color: #282c34;
+    text-align: center;
+    padding: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
   }
+
   a {
     color: white;
     text-decoration: none;
@@ -31,7 +33,7 @@ export const HeaderContainer = styled.div`
     align-items: center;
     list-style: none;
   }
-  
+
   Button {
     background-color: whitesmoke;
     color: black;

@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {removeFromCart, updateQuantity} from './cartActions';
 import {Link} from 'react-router-dom';
 import {BackToCatalog, StyledCartPage} from "./CartPage.styled";
+import Auth from "../../component/Auth/Auth";
 
 export default function CartPage() {
     const cart = useSelector((state) => state);
@@ -19,8 +20,16 @@ export default function CartPage() {
 
     const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
+    const isLoggedIn = localStorage.getItem('token');
+
+    if (!isLoggedIn) {
+        return (
+            <Auth/>
+        )
+    }
+
     return (
-        <StyledCartPage className="cart-container">
+        <StyledCartPage>
             <h2>Your Cart</h2>
             {cart.map((item) => (
                 <div key={item.id} className="cart-item">
@@ -52,6 +61,13 @@ export default function CartPage() {
                     Back to Catalog
                 </Link>
             </BackToCatalog>
+            {totalPrice > 0 && (
+                <BackToCatalog>
+                    <Link className="continue-btn" to='/checkout'>
+                        Continue
+                    </Link>
+                </BackToCatalog>
+            )}
         </StyledCartPage>
     );
 };

@@ -4,6 +4,7 @@ import CatalogContainer from "./CatalogContainer/CatalogContainer";
 import {getCars} from "../../api";
 import StyledLoader from "../../component/Loader/Loader.styled";
 import {StyledCatalog} from "./Catalog.styled";
+import Auth from "../../component/Auth/Auth";
 
 
 export const Catalog = () => {
@@ -20,6 +21,14 @@ export const Catalog = () => {
 
     function handleFilteredCars(filteredData) {
         setFilteredData(filteredData);
+    }
+
+    const isLoggedIn = localStorage.getItem('token');
+
+    if (!isLoggedIn) {
+        return (
+            <Auth/>
+        )
     }
 
     return (

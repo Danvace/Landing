@@ -92,7 +92,7 @@ const StyledCartPage = styled.div`
 
 const BackToCatalog = styled.div`
   text-align: center;
-  margin-top: 20px;
+  margin-top: 30px;
 
   a {
     text-decoration: none;
@@ -109,4 +109,8 @@ const BackToCatalog = styled.div`
   }
 `;
 
-export { StyledCartPage, BackToCatalog };
+const StyledCheckout = styled.div`
+    padding: 20px;
+`
+
+export {StyledCartPage, BackToCatalog};

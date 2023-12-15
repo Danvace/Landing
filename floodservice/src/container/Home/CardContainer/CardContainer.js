@@ -4,9 +4,6 @@ import {Button} from "antd";
 import {CardContainer, NoItemsMessage} from "./CardContainer.styled";
 import ShowButton from "../../../component/ShowButton/ShowButton";
 import {Link} from "react-router-dom";
-import {type} from "@testing-library/user-event/dist/type";
-import {getCars} from "../../../api";
-// import axios from 'axios';
 
 const CAR = "/car/"
 

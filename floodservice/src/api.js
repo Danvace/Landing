@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const baseURL = 'http://localhost:8080';
+
 export function getCars() {
     // Return the promise returned by axios.get
     return axios.get("http://localhost:8080/api/cars")
@@ -33,7 +35,6 @@ export function getCarsWithFilters({price, year, engineVolume}) {
 export function getCarById(id) {
     return axios.get(`http://localhost:8080/api/cars/${id}`)
         .then(function (response) {
-            console.log(response.data)
             return response.data
         })
         .catch(function (error) {
@@ -42,3 +43,44 @@ export function getCarById(id) {
             }
         )
 }
+
+const api = axios.create({
+    baseURL,
+    headers: {
+        'Content-Type': 'application/json',
+    },
+});
+
+export const login = async (formData) => {
+    try {
+        const response = await api.post('/api/auth/login', formData);
+
+        const accessToken = response.data.accessToken;
+        // const refreshToken = response.data.refreshToken;
+
+        localStorage.setItem('token', accessToken);
+        // localStorage.setItem('refreshToken', refreshToken);
+
+        return response.data;
+    } catch (error) {
+        if (error.response && error.response.status === 401) {
+            throw new Error('Invalid email or password.');
+        }
+
+        throw error;
+    }
+};
+
+export const register = async (formData) => {
+    try {
+        const response = await api.post('/api/auth/register', formData);
+
+        const accessToken = response.data.accessToken;
+
+        localStorage.setItem('token', accessToken);
+
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};
