@@ -56,10 +56,9 @@ export const login = async (formData) => {
         const response = await api.post('/api/auth/login', formData);
 
         const accessToken = response.data.accessToken;
-        // const refreshToken = response.data.refreshToken;
-
-        localStorage.setItem('token', accessToken);
-        // localStorage.setItem('refreshToken', refreshToken);
+        if (accessToken) {
+            localStorage.setItem('token', accessToken);
+        }
 
         return response.data;
     } catch (error) {

@@ -20,7 +20,10 @@ const Login = () => {
         }),
         onSubmit: async (values) => {
             try {
-                await login(values);
+                const a = await login(values);
+                if (!a) {
+                    alert("Invalid email or password.")
+                }
                 navigate('/');
                 window.location.reload();
             } catch (error) {
